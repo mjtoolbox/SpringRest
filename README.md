@@ -1,0 +1,1 @@
+This sample project is to use Spring REST back end and AngularJS front end. 

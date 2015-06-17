@@ -1,4 +1,4 @@
-package main.java.mjtoolbox;
+package main.java.com.mjtoolbox.controller;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
