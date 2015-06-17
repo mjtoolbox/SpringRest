@@ -2,15 +2,9 @@
 <head>
     <title>CM Managing Recent Popup Messages</title>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-    <script src="../../resources/javascript/common.js"></script>
-    <script language="JavaScript">
-
-    </script>
-
-
     <link href="../../resources/css/cm_water_conveyance.css" rel="stylesheet" type="text/css">
     <style type="text/css">
-        <!--
+
         body {
 
             font-family: Tahoma, Arial, Helvetica, sans-serif;
@@ -69,39 +63,12 @@
             cursor: hand;
         }
 
-        -->
     </style>
-    <script language="JavaScript">openDetailsInNewWindow('<%= newParentPage %>');</script>
 </head>
 <body bgcolor="#DEE9F5" leftmargin="0" topmargin="0" oncontextmenu="return false;" onKeyUp="navigateWithArrows( event, <%= size %> );">
 <form name="managingRecentPopupMessagesForm" method="post" action="<%=request.getRequestURI()%>">
     <input type="hidden" name="Action" value="">
     <input class="hiddenValue" name="<%= theHttpUrlBuilder.buildHttpPropertyName( ManagingRecentPopupMessagesHtmlValidator.CURRENT_ROW ) %>" value="">
-
-
-    <!-- if size == 0 -->
-    <!--<script language="JavaScript">resizeNoMessages();</script>-->
-    <!--<table width="100%" border="0" cellpadding="0" cellspacing="0" valign="top" >-->
-    <!--<tr>	-->
-    <!--<td>-->
-    <!--<table width="100%" border="0" align="left" valign="top" cellpadding="0" cellspacing="0" bgcolor="#EFEFF7" height="100%">-->
-    <!--<tr class="subTitleBars">-->
-    <!--<td valign="top">ID</td>-->
-    <!--<td valign="top">Reservoir</td>-->
-    <!--<td valign="top">Message</td>-->
-    <!--<td valign="top" nowrap>Time</td>-->
-    <!--<td valign="top" align="right"><a href="#" onClick="refreshPage()"><img src="../../resources/images/refresh.gif" border="0" align="absbottom" class="belowBaseline">&nbsp;<u>R</u>efresh&nbsp;</a></td>-->
-    <!--</tr>			-->
-    <!--<tr> -->
-    <!--<td height="14" class="lightBlueTableBackground" valign="top" colspan="5"> There are no messages to display at the current time. </td>-->
-    <!--</tr>-->
-    <!--<tr class="lightBlueTableBackground"> -->
-    <!--<td height="14" colspan="5">&nbsp;</td>-->
-    <!--</tr>				-->
-    <!--</table>-->
-    <!--</td>-->
-    <!--</tr>-->
-    <!--</table>-->
 
     <table width="100%" border="0" cellpadding="0" cellspacing="0" valign="top">
         <tr>
@@ -116,7 +83,6 @@
                             <fmt:formatDate pattern="HH:mm" type="both" value="${theManagingRecentPopupMessages.lastUpdatedTime}"/>
                             &nbsp;&nbsp;<a href="#" onClick="refreshPage()"><img src="../../resources/images/refresh.gif" border="0" align="absbottom" class="belowBaseline"></a>
                     </tr>
-
                     <!-- in the loop -->
                     <tr onClick="<% if ( !expanded ) { %> selectRow( <%= size %>, <%= row %> ); processMessageEventDismissable( <%= row %> ); processMessageEventOpenable( <%= row %> );  <% } else { %> clickRow( <%= row %> ); processMessageEventDismissable( <%= row %> ); processMessageEventOpenable( <%= row %> );<% } %>"
                         id="messageRow<%=row%>" class="" height="20" onDblClick="doubleClickRow( <%= row %> );">
@@ -126,7 +92,6 @@
                         <td colspan="2" valign="top"><font <%= fontColor %>><%= time %></font></td>
                     </tr>
                     <!-- end the loop-->
-
                     <tr class="lightBlueTableBackground">
                         <td height="7" bgcolor="white" valign="top" colspan="5" class="lightBlueTableBackground"></td>
                     </tr>
@@ -145,30 +110,23 @@
                         <td bgcolor="#DEE9F5" align="center"><b class="bodyTextIndented">Click&nbsp;<a href="javascript:snoozeUntilRemiderTime()"><img
                                 src="../../resources/images/specific_btn_snooze.gif" width="80" height="18" border=0 align="absmiddle"></a>&nbsp;to be reminded again in:
 
-                            <select name="<%= theHttpUrlBuilder.buildHttpPropertyName( ManagingRecentPopupMessagesHtmlValidator.REMINDER_TIME )%>" class="textField">
+                            <select name="REMINDER_TIME" class="textField">
 
                                 <!-- In the loop -->
-                                <option value='<%= i %>'
-                                <%= selected %> ><%= reminderTimeType.getDescription() %></option>
-                                <script language="JavaScript">addReminderTimeValue( < %= i % >,
-                                <
-                                %= reminderTimeType.getTimeInterval() % >
-                                )
-                                ;</script>
+                                <option value='value here'></option>
+
                                 <!-- end of the loop-->
 
                             </select></b>
                         </td>
                         <td align="right" width="250">
                             <span class="requiredSymbolColor">*</span>
-                            <a href="javascript:openItem();"><img name="openButtonImage" src="../../resources/images/specific_btn_open_item_disabled.gif" width="80" height="18"
+                            <a href="javascript:openItem();">
+                                <img name="openButtonImage" src="../../resources/images/specific_btn_open_item_disabled.gif" width="80" height="18"
                                                                   border=0 align="absmiddle"></a>
                             &nbsp;<a href="javascript:dismissMessage();">
                             <img name="dismissButtonImage" src="../../resources/images/specific_btn_dismiss_disabled.gif" width="80" height="18" hspace="5" border="0"
                                  align="absmiddle"></a>
-                            <!--<script language="JavaScript">processMessageEventOpenable( <%= selectedRow %> );</script>			-->
-                            <!--<script language="JavaScript">processMessageEventDismissable( <%= selectedRow %> );</script>-->
-                            <!--<script language="JavaScript">processAnyDismissableMessages();</script>-->
                         </td>
                     </tr>
                 </table>
@@ -176,16 +134,7 @@
                     <tr bgcolor="#DEE9F5" height="25">
                         <td width="150">&nbsp;</td>
                         <td align="center">
-
-                            <!-- Not expanded -->
-                            <!--<script language="JavaScript">resizeUnexpandedWindow( <%= size %> );</script>-->
-
-                            <!--<a href="javascript:viewMoreDetails();">-->
-                            <!--&nbsp;<img src="../../resources/images/expand_icon.gif" width="16" height="16" hspace="5" border="0" align="absmiddle">&nbsp;View <u>M</u>ore Details&nbsp; -->
-                            <!--</a>									-->
-
                             <!-- Expanded -->
-                            <script language="JavaScript">resizeExpandedWindow( < %= size % >);</script>
                             <a href="javascript:viewFewerDetails();">
                                 <img src="../../resources/images/collapse_icon.gif" width="16" height="16" hspace="5" border="0" align="absmiddle">&nbsp;View <u>F</u>ewer Details&nbsp;
                             </a>
@@ -199,35 +148,9 @@
     </table>
 </form>
 
-<!-- expanded & Instruction and isImperialViewSelected -->
-<!--<hr>-->
-<!--<jsp:include page="/WaterConveyance/ViewingWCInstructionDetailsInPopup/ViewingWCImperialInstructionDetailsInPopup.jsp"/>-->
-
 <!-- expanded & Instruction and non imperial -->
 <hr>
-<jsp:include page="/WaterConveyance/ViewingWCInstructionDetailsInPopup/ViewingWCInstructionDetailsInPopup.jsp"/>
-
-<!-- expanded and implementation message -->
-<!--<hr>-->
-<!--<jsp:include page="/WaterConveyance/ViewingWCImplementationDetailsInPopup/ViewingWCImplementationDetailsInPopup.jsp"/>-->
-
-<!-- expanded and Admin messages -->
-<!--<hr>-->
-<!--<table border="0" cellpadding="0" cellspacing="0">-->
-<!--<tr>-->
-<!--<td valign="top">-->
-<!--<table border="0" cellspacing="0" cellpadding="0">-->
-<!--<tr>-->
-<!--<td valign="top">-->
-<!--<br>-->
-<!--<b class="bodyTextIndented"><%=theManagingRecentPopupMessages.getSelectedMessageText()%></b>-->
-<!--<br>							-->
-<!--</td>-->
-<!--</tr>-->
-<!--</table>-->
-<!--</td>-->
-<!--</tr>-->
-<!--</table>-->
+<!--<include page="/WaterConveyance/ViewingWCInstructionDetailsInPopup/ViewingWCInstructionDetailsInPopup.jsp"/>-->
 
 </body>
 </html>

@@ -1,0 +1,682 @@
+.tooltip {
+  display: none; /*background : transparent url ( ../../resources/images/black_big.png );*/
+  background: #000000;
+  font-size: 12px;
+  height: auto;
+  width: auto;
+  max-width: 370px;
+  padding: 25px;
+  color: #ffffff;
+  border: 3px solid #999;
+  padding: 1em;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -khtml-border-radius: 15px;
+  border-radius: 15px;
+  border-radius: 15px;
+}
+
+.bodyTextIndentedLink {
+  font-family: Tahoma, Arial, Helvetica, sans-serif;
+  font-size: 8pt;
+  font-weight: bold;
+  padding-right: 8px;
+  padding-left: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  letter-spacing: 1px
+}
+
+.statusLinks {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 8pt;
+  color: #666666;
+  text-decoration: none;
+}
+
+a:link {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  color: #0000FF;
+  text-decoration: none;
+}
+
+a:visited {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  color: #0000FF;
+  text-decoration: none;
+}
+
+a:active {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  color: #0000FF;
+  text-decoration: none;
+}
+
+a:hover {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  color: #006600;
+}
+
+body {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  color: #333333;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.bodyTextIndented {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  color: #333333;
+  padding-right: 7px;
+  padding-left: 7px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.bodyTextWhite {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  color: #FFFFFF;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.headerText {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 8pt;
+  color: #666666;
+  text-decoration: none;
+}
+
+.subTitleBars {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  color: #FFFFFF;
+  font-weight: bold;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  background-color: #94A6BD;
+  padding-left: 8px;
+}
+
+.lightBlueTableBackground {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  background-color: #F5F7FA;
+  color: #333333;
+  padding-right: 7px;
+  padding-left: 7px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.ajaxRow {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  background-color: #F5F7FA;
+  color: #333333;
+  padding-right: 7px;
+  padding-left: 7px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.selectedRow {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  color: #333333;
+  padding-right: 7px;
+  padding-left: 7px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  background-color: #DEE9F5;
+}
+
+.blueTabTitle {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 9pt;
+  color: #548ECF;
+  font-weight: bold;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 2px;
+  background-color: #DEE9F5;
+}
+
+.generatedText {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  color: #333333;
+  font-weight: bold;
+  padding-right: 15px;
+  padding-left: 5px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  /* margin-top: 6px;
+   margin-right: 8px;
+   margin-bottom: 6px;
+   margin-left: 8px; */
+}
+
+.buttonText {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-decoration: none;
+  text-align: center;
+  CURSOR: hand;
+}
+
+td {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+}
+
+.borderWhite {
+  border: 2px solid #FFFFFF;
+}
+
+.borderGrey {
+  border: 1px solid #94A6BD;
+}
+
+.blueInstructionLabels {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  color: #2F68A8;
+  padding-left: 10px;
+}
+
+form {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  color: #333333;
+}
+
+input {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  color: #333333;
+  vertical-align: middle;
+  /* padding-left: 2px;
+   border: 1px solid #999999; */
+}
+
+select {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  color: #333333;
+  vertical-align: middle;
+  padding-left: 2px;
+  border: 1px solid #999999;
+}
+
+.fixedWidthSelect {
+  width: 177px;
+}
+
+textarea {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  color: #333333;
+  padding-left: 2px;
+  border: 1px solid #999999;
+}
+
+.textField {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  color: #333333;
+  padding-left: 5px;
+  border: 1px solid #999999;
+}
+
+.textFieldDisabled {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  color: #999999;
+  padding-left: 2px;
+  border: 1px solid #CCCCCC;
+}
+
+.blueCollapsable {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 9pt;
+  color: #3473B8;
+  font-weight: bold;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 2px;
+  background-color: #BBD2EC;
+}
+
+.blueResvrTitle {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  color: #548ECF;
+  font-weight: bold;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 7px;
+  background-color: #DEE9F5;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: #94A6BD;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: #94A6BD;
+}
+
+.resvrBackEligible {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  background-color: #F5F7FA;
+  color: #333333;
+  width: 53px;
+  padding-right: 0px;
+  padding-left: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  background-image: url(../images/resvr_back_eligible.gif);
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+/* .resvrBackIppEligible {
+ font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+ font-size: 11px;
+ font-weight: bold;
+ background-color: #F5F7FA;
+ color: #333333;
+ padding-right: 0px;
+ padding-left: 0px;
+ padding-top: 0px;
+ padding-bottom: 0px;
+ background-image: url(../images/resvr_back_ipp_eligible.gif);
+ background-repeat: no-repeat;
+ background-position: left center;
+}
+.resvrBackNotEligible {
+ font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+ font-size: 11px;
+ font-weight: bold;
+ background-color: #F5F7FA;
+ color: #333333;
+ padding-right: 0px;
+ padding-left: 0px;
+ padding-top: 0px;
+ padding-bottom: 0px;
+ background-image: url(../images/resvr_back_not_eligible.gif);
+ background-repeat: no-repeat;
+ background-position: left center;
+} */
+.resvrBackOutagesUC {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  background-color: #F5F7FA;
+  color: #333333;
+  padding-right: 0px;
+  padding-left: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  background-image: url(../images/resvr_back_outages_uc.gif);
+  background-repeat: no-repeat;
+  background-position: left center;
+  width: 53px;
+}
+
+.borderGreyRight {
+  border-right: 1px solid #94A6BD;
+}
+
+.borderGreyLeft {
+  border-left: 1px solid #94A6BD;
+}
+
+.borderGreyRightCorner {
+  border-right: 1px solid #94A6BD;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: #94A6BD;
+}
+
+.borderGreyLeftCorner {
+  border-left: 1px solid #94A6BD;
+  border-top: 1px solid #94A6BD;
+}
+
+.borderGreyTop {
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: #94A6BD;
+}
+
+.specialMessage {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  font-weight: bold;
+  color: #990000;
+
+  padding: 10px;
+}
+
+.blueImplementationTitle {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  color: #548ECF;
+  font-weight: bold;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 7px;
+  background-color: #CBDCEF;
+  /* border-bottom-width: 1px;
+   border-bottom-style: groove;
+   border-bottom-color: #548ECF; */
+}
+
+/* .gateRequestTableBorderLeftRightBottom {
+ font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+ font-size: 11px;
+ background-color: #F5F7FA;
+ color: #333333;
+ padding-right: 8px;
+ padding-left: 8px;
+ padding-top: 4px;
+ padding-bottom: 4px;
+ border-left-width: 1px;
+ border-left-style: solid;
+ border-left-color: #94A6BD;
+ border-right-width: 1px;
+ border-bottom-width: 1px;
+ border-right-style: solid;
+ border-bottom-style: solid;
+ border-right-color: #94A6BD;
+ border-bottom-color: #94A6BD;
+} */
+.gateRequestTableBorderLowRightCorner {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  background-color: #F5F7FA;
+  color: #333333;
+  padding-right: 8px;
+  padding-left: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-right-color: #94A6BD;
+  border-bottom-color: #94A6BD;
+}
+
+.implementationTableBorderRight {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  background-color: #CBDCEF;
+  color: #333333;
+  padding-right: 8px;
+  padding-left: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: #94A6BD;
+}
+
+.gateRequestTableBorderBottom {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  background-color: #F5F7FA;
+  color: #333333;
+  padding-right: 8px;
+  padding-left: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #94A6BD;
+}
+
+.implementationTableBorderBottom {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  background-color: #FFFFFF;
+  color: #333333;
+  padding-right: 8px;
+  padding-left: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #94A6BD;
+}
+
+.redPendingText {
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  background-color: #F5F7FA;
+  color: #FF9900;
+  width: 53px;
+  background-image: url(../images/resvr_back_eligible.gif);
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+/*.superscriptUC {
+ font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+ font-size: 8px;
+ text-transform: capitalize;
+ vertical-align: super;
+ color: #464D97;
+}
+
+.superscriptOutages {
+ font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+ font-size:8px;
+ text-transform: capitalize;
+ vertical-align: super;
+ color: #6B6F44;
+} */
+.connectorBackground {
+  background-image: url(../images/blue_2pixel.gif);
+  background-repeat: repeat-x;
+  background-position: center;
+  width: 25px;
+}
+
+.selectedTableBackground {
+
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  background-color: #D6FF97;
+  color: #333333;
+  padding-right: 7px;
+  padding-left: 7px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.nonSelectedTableBackgroundCopy {
+
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  background-color: #DFDFDF;
+  color: #333333;
+  padding-right: 7px;
+  padding-left: 7px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.superpillLeftOutages {
+
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  background-color: #F5F7FA;
+  color: #333333;
+  padding-right: 0px;
+  padding-left: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  background-image: url(../images/superpill_left_outages.gif);
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+.superpillLeftWC {
+
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  background-color: #F5F7FA;
+  color: #333333;
+  padding-right: 0px;
+  padding-left: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  background-image: url(../images/superpill_left_wc.gif);
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+.superpillCenterOutages {
+
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  background-color: #F5F7FA;
+  color: #333333;
+  background-image: url(../images/superpill_center_outages.gif);
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+.superpillCenterWC {
+
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  background-color: #F5F7FA;
+  color: #333333;
+  background-image: url(../images/superpill_center_wc.gif);
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+.superpillRightOutages {
+
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  background-color: #F5F7FA;
+  color: #333333;
+  padding-right: 0px;
+  padding-left: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  background-image: url(../images/superpill_right_outages.gif);
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+.superpillRightWC {
+
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  background-color: #F5F7FA;
+  color: #333333;
+  padding-right: 0px;
+  padding-left: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  background-image: url(../images/superpill_right_wc.gif);
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+.superpillLeftWCpending {
+
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  background-color: #F5F7FA;
+  color: #FF9900;
+  width: 53px;
+  background-image: url(../images/superpill_left_wc.gif);
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+.superpillCenterWCpending {
+
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  background-color: #F5F7FA;
+  color: #FF9900;
+  width: 53px;
+  background-image: url(../images/superpill_center_wc.gif);
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+.superpillRightWCpending {
+
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  background-color: #F5F7FA;
+  color: #FF9900;
+  width: 53px;
+  background-image: url(../images/superpill_right_wc.gif);
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+.superpillWholeLeftOutages {
+
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  color: #333333;
+  background-image: url(../images/superpill_whole_left_outages.gif);
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+.superpillWholeOutages {
+
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  background-color: #F5F7FA;
+  color: #333333;
+  background-image: url(../images/superpill_whole_outages.gif);
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+.superpillWholeRightOutages {
+
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  color: #333333;
+  background-image: url(../images/superpill_whole_right_outages.gif);
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+.ajaxLink {
+  cursor: pointer;
+  color: blue
+}
