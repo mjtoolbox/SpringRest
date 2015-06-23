@@ -1,11 +1,14 @@
 <!doctype html>
 <html>
 <head>
-  <link href="http://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
-  <link href='http://fonts.googleapis.com/css?family=Roboto:500,300,700,400' rel='stylesheet' type='text/css'>
-  <link href="css/main.css" rel="stylesheet" />
-
+  <link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="resources/bootstrap/js/bootstrap.min.js"></script>
   <script src="resources/js/lib/angular/angular.min.js"></script>
+  <!-- Modules -->
+  <script src="resources/js/app.js"></script>
+
+  <!-- Controllers -->
+  <script src="resources/js/controllers/MainController.js"></script>
 </head>
 <body ng-app="myApp">
 <div class="header">
@@ -14,33 +17,30 @@
   </div>
 </div>
 
-<div class="main" ng-controller="MainController">
+<div class="main" ng-controller="MessageController">
   <div class="container">
 
-    <h1>{{ title }}</h1>
-    <h2>{{ promo }}</h2>
+    <h1>CM Message Console for {{userId}} </h1>
 
     <!-- Single product -->
     <!--<div class="col-md-6">-->
       <!--<div class="thumbnail">-->
-        <!--<img src="img/the-book-of-trees.jpg">-->
-        <!--<p class="title">{{product.name | uppercase}} </p>-->
-        <!--<p class="price">{{product.price | currency }} </p>-->
-        <!--<p class="date"> {{product.pubdate | date}}</p>-->
+        <!--<img src="resources/images/the-book-of-trees.jpg">-->
+        <!--<p class="id">{{data.id }} </p>-->
+        <!--<p class="title">{{data.title  }} </p>-->
+        <!--<p class="desc"> {{data.desc}}</p>-->
+        <!--<p class="category_name"> {{data.category_name}}</p>-->
       <!--</div>-->
     <!--</div>-->
 
-    <div ng-repeat="product in products" class="col-md-6">
+    <div ng-repeat="message in messageEvents" class="col-md-6">
       <div class="thumbnail">
-        <img ng-src="{{product.cover}}">
-        <p class="title">{{ product.name }}</p>
-        <p class="price">{{ product.price | currency }}</p>
-        <p class="date">{{ product.pubdate | date }}</p>
-        <div class="rating">
-          <!-- $index belongs to ng-repeat -->
-          <p class="likes" ng-click="plusOne($index)">+ {{product.likes}}</p>
-          <p class="dislikes" ng-click="minusOne($index)">+ {{product.dislikes}}</p>
-        </div>
+        <!--<img ng-src="{{product.cover}}">-->
+        <p class="id">{{ message.id }}</p>
+        <p class="resevoir">{{ message.reservoir }}</p>
+        <p class="message">{{ message.message }}</p>
+        <p class="time">{{ message.time }}</p>
+
       </div>
     </div>
 
@@ -56,10 +56,6 @@
 <!--</div>-->
 
 
-<!-- Modules -->
-<script src="resources/js/app.js"></script>
 
-<!-- Controllers -->
-<script src="resources/js/controllers/MainController.js"></script>
 </body>
 </html>
