@@ -40,9 +40,9 @@
 
             <p class="resevoir">{{ message.reservoir }}</p>
 
-            <p class="message">{{ message.message }}</p>
+            <p class="message">{{ message.title }} - {{message.description}}</p>
 
-            <p class="time">{{ message.time }}</p>
+            <p class="time">{{ message.submitTime | date : 'h:mma, EEE, d MMM, y'}}</p>
         </div>
 
     </div>
