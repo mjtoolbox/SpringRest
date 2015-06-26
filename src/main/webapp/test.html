@@ -1,49 +1,60 @@
 <!doctype html>
 <html>
 <head>
-  <link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-  <script src="resources/bootstrap/js/bootstrap.min.js"></script>
-  <script src="resources/js/lib/angular/angular.min.js"></script>
-  <!-- Modules -->
-  <script src="resources/js/app.js"></script>
+    <link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="resources/bootstrap/js/bootstrap.min.js"></script>
+    <script src="resources/js/lib/angular/angular.min.js"></script>
+    <!-- Modules -->
+    <script src="resources/js/app.js"></script>
 
-  <!-- Controllers -->
-  <script src="resources/js/controllers/MainController.js"></script>
+    <!-- Controllers -->
+    <script src="resources/js/controllers/MessageController.js"></script>
 </head>
 <body ng-app="myApp">
 <div class="header">
-  <div class="container">
-    <h1>Test Page</h1>
-  </div>
+    <div class="container">
+        <h1>Test Page</h1>
+    </div>
 </div>
 
 <div class="main" ng-controller="MessageController">
-  <div class="container">
+    <div class="container">
 
-    <h1>CM Message Console for {{userId}} </h1>
+        <h1>CM Message Console for {{userId}} </h1>
+        <!--http://issues.wenzhixin.net.cn/bootstrap-table/-->
 
-    <div ng-repeat="message in messageEvents" class="col-md-6">
-      <div class="thumbnail">
-        <!--<img ng-src="{{product.cover}}">-->
-        <p class="id">{{ message.id }}</p>
-        <p class="resevoir">{{ message.reservoir }}</p>
-        <p class="message">{{ message.message }}</p>
-        <p class="time">{{ message.time }}</p>
+        <div class="row">
+        <table>
+            <tr>
+                <td>ID</td>
+                <td>Reservoir</td>
+                <td>Message</td>
+                <td>Time</td>
+            </tr>
+        </table>
+        </div>
 
-      </div>
+        <!--<div ng-repeat="message in messageEvents" class="col-md-6">-->
+        <div ng-repeat="message in messageEvents">
+            <p class="id">{{ message.id }}</p>
+
+            <p class="resevoir">{{ message.reservoir }}</p>
+
+            <p class="message">{{ message.message }}</p>
+
+            <p class="time">{{ message.time }}</p>
+        </div>
+
     </div>
-
-  </div>
 </div>
 
 <!--<div class="footer">-->
-  <!--<div class="container">-->
-    <!--<h2>Available for iPhone and Android.</h2>-->
-    <!--<img src="http://s3.amazonaws.com/codecademy-content/projects/shutterbugg/app-store.png" width="120px" />-->
-    <!--<img src="http://s3.amazonaws.com/codecademy-content/projects/shutterbugg/google-play.png" width="110px" />-->
-  <!--</div>-->
+<!--<div class="container">-->
+<!--<h2>Available for iPhone and Android.</h2>-->
+<!--<img src="http://s3.amazonaws.com/codecademy-content/projects/shutterbugg/app-store.png" width="120px" />-->
+<!--<img src="http://s3.amazonaws.com/codecademy-content/projects/shutterbugg/google-play.png" width="110px" />-->
 <!--</div>-->
-
+<!--</div>-->
 
 
 </body>
