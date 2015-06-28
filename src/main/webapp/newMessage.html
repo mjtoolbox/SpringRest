@@ -1,0 +1,156 @@
+<html>
+<head>
+    <title>CM Managing Recent Popup Messages</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <link href="../../resources/css/cm_water_conveyance.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+
+        body {
+
+            font-family: Tahoma, Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            color: #333333;
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+
+        .selectedElement {
+
+            font-family: Tahoma, Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            background-color: #FFCC99;
+            color: #000000;
+            padding-right: 7px;
+            padding-left: 7px;
+            padding-top: 4px;
+            padding-bottom: 4px;
+        }
+
+        .hiddenValue {
+
+            position: absolute;
+            height: 0px;
+            font-family: Tahoma, Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            color: #999999;
+            padding-left: 2px;
+            border: 1px solid #CCCCCC;
+            width: 0px;
+            top: 0px;
+            clip: rect(0px, auto, auto, auto);
+        }
+
+        .boldText {
+            font-weight: bold;
+        }
+
+        .requiredSymbolColor {
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 10pt;
+            font-weight: bolder;
+            padding-top: 0px;
+            padding-right: 0px;
+            padding-bottom: 0px;
+            padding-left: 3px;
+            color: #FF0000;
+        }
+
+        .defaultCursor {
+            cursor: default;
+        }
+
+        .handCursor {
+            cursor: hand;
+        }
+
+    </style>
+</head>
+<body bgcolor="#DEE9F5" leftmargin="0" topmargin="0" oncontextmenu="return false;" onKeyUp="navigateWithArrows( event, <%= size %> );">
+<form name="managingRecentPopupMessagesForm" method="post" action="<%=request.getRequestURI()%>">
+    <input type="hidden" name="Action" value="">
+    <input class="hiddenValue" name="<%= theHttpUrlBuilder.buildHttpPropertyName( ManagingRecentPopupMessagesHtmlValidator.CURRENT_ROW ) %>" value="">
+
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" valign="top">
+        <tr>
+            <td>
+                <table width="100%" border="0" align="left" valign="top" cellpadding="0" cellspacing="0" bgcolor="#EFEFF7" height="100%">
+                    <tr class="subTitleBars">
+                        <td valign="top">ID</td>
+                        <td valign="top">Reservoir</td>
+                        <td valign="top">Message</td>
+                        <td valign="top" nowrap>Time</td>
+                        <td valign="top" align="right">Last Refreshed At:
+                            <fmt:formatDate pattern="HH:mm" type="both" value="${theManagingRecentPopupMessages.lastUpdatedTime}"/>
+                            &nbsp;&nbsp;<a href="#" onClick="refreshPage()"><img src="../../resources/images/refresh.gif" border="0" align="absbottom" class="belowBaseline"></a>
+                    </tr>
+                    <!-- in the loop -->
+                    <tr onClick="<% if ( !expanded ) { %> selectRow( <%= size %>, <%= row %> ); processMessageEventDismissable( <%= row %> ); processMessageEventOpenable( <%= row %> );  <% } else { %> clickRow( <%= row %> ); processMessageEventDismissable( <%= row %> ); processMessageEventOpenable( <%= row %> );<% } %>"
+                        id="messageRow<%=row%>" class="" height="20" onDblClick="doubleClickRow( <%= row %> );">
+                        <td valign="top"><font <%= fontColor %>><input type="text" id="focus<%= row %>" class="hiddenValue"><%= id %></font></td>
+                        <td valign="top"><font <%= fontColor %>><%= assetCode %></font></td>
+                        <td valign="top"><font <%= fontColor %>><%= message %></font></td>
+                        <td colspan="2" valign="top"><font <%= fontColor %>><%= time %></font></td>
+                    </tr>
+                    <!-- end the loop-->
+                    <tr class="lightBlueTableBackground">
+                        <td height="7" bgcolor="white" valign="top" colspan="5" class="lightBlueTableBackground"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr valign="bottom">
+            <td>
+                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                    <tr bgcolor="#DEE9F5" height="25">
+                        <td width="150">
+                            <a href="javascript:dismissAllMessages();">
+                                <img name="dismissAllButtonImage" src="../../resources/images/specific_btn_dismiss_all_disabled.gif" hspace="5" border="0" align="absmiddle">
+                            </a>
+                        </td>
+                        <td bgcolor="#DEE9F5" align="center"><b class="bodyTextIndented">Click&nbsp;<a href="javascript:snoozeUntilRemiderTime()"><img
+                                src="../../resources/images/specific_btn_snooze.gif" width="80" height="18" border=0 align="absmiddle"></a>&nbsp;to be reminded again in:
+
+                            <select name="REMINDER_TIME" class="textField">
+
+                                <!-- In the loop -->
+                                <option value='value here'></option>
+
+                                <!-- end of the loop-->
+
+                            </select></b>
+                        </td>
+                        <td align="right" width="250">
+                            <span class="requiredSymbolColor">*</span>
+                            <a href="javascript:openItem();">
+                                <img name="openButtonImage" src="../../resources/images/specific_btn_open_item_disabled.gif" width="80" height="18"
+                                                                  border=0 align="absmiddle"></a>
+                            &nbsp;<a href="javascript:dismissMessage();">
+                            <img name="dismissButtonImage" src="../../resources/images/specific_btn_dismiss_disabled.gif" width="80" height="18" hspace="5" border="0"
+                                 align="absmiddle"></a>
+                        </td>
+                    </tr>
+                </table>
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" valign="top">
+                    <tr bgcolor="#DEE9F5" height="25">
+                        <td width="150">&nbsp;</td>
+                        <td align="center">
+                            <!-- Expanded -->
+                            <a href="javascript:viewFewerDetails();">
+                                <img src="../../resources/images/collapse_icon.gif" width="16" height="16" hspace="5" border="0" align="absmiddle">&nbsp;View <u>F</u>ewer Details&nbsp;
+                            </a>
+
+                        </td>
+                        <td width="250" align="right"><span class="requiredSymbolColor">*</span>Please save changes prior to clicking Open Item.</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<!-- expanded & Instruction and non imperial -->
+<hr>
+<!--<include page="/WaterConveyance/ViewingWCInstructionDetailsInPopup/ViewingWCInstructionDetailsInPopup.jsp"/>-->
+
+</body>
+</html>
