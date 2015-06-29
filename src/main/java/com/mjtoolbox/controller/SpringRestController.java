@@ -3,6 +3,7 @@ package com.mjtoolbox.controller;
 import com.mjtoolbox.bean.Message;
 import com.mjtoolbox.service.SpringRestService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +21,7 @@ public class SpringRestController {
     private SpringRestService springRestService;
 
 
-    @RequestMapping("/messages")
+    @RequestMapping(value="/messages", method = RequestMethod.GET, headers = "Accept=application/json")
     public List<Message> getMessageList()
     {
         return springRestService.getAllEvents();
@@ -46,10 +47,10 @@ public class SpringRestController {
         springRestService.deleteAll();
     }
 
-    @RequestMapping(value = "/{name}", method = RequestMethod.GET)
-    public String getGreeting(@PathVariable String name) {
-        String result = "Hello " + name;
-        return result;
-    }
+//    @RequestMapping(value = "/{name}", method = RequestMethod.GET)
+//    public String getGreeting(@PathVariable String name) {
+//        String result = "Hello " + name;
+//        return result;
+//    }
 
 }
