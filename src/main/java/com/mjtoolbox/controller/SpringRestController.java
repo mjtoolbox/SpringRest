@@ -3,12 +3,10 @@ package com.mjtoolbox.controller;
 import com.mjtoolbox.bean.Message;
 import com.mjtoolbox.service.SpringRestService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
+
 
 /**
  * Created by msjo on 6/14/2015.
@@ -21,9 +19,8 @@ public class SpringRestController {
     private SpringRestService springRestService;
 
 
-    @RequestMapping(value="/messages", method = RequestMethod.GET, headers = "Accept=application/json")
-    public List<Message> getMessageList()
-    {
+    @RequestMapping(value = "/messages", method = RequestMethod.GET, headers = "Accept=application/json")
+    public List<Message> getMessageList() {
         return springRestService.getAllEvents();
     }
 
@@ -33,7 +30,7 @@ public class SpringRestController {
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
-    public void updateMessage(@RequestBody  Message message) {
+    public void updateMessage(@RequestBody Message message) {
         springRestService.updateEvent(message);
     }
 

@@ -2,6 +2,7 @@
  * Created by msjo on 6/16/2015.
  */
 app.controller('MainController', ['$scope',
+
     //function($scope){
     //    $scope.title = 'New arrival';
     //    $scope.promo = 'New 50% sale!';
@@ -86,5 +87,4 @@ app.controller('MainController', ['$scope',
                 $scope.data.splice($scope.selectedItem, 1);
             }
         };
-
     }]);
