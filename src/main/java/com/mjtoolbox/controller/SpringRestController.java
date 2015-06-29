@@ -20,7 +20,7 @@ public class SpringRestController {
     private SpringRestService springRestService;
 
 
-    @RequestMapping("/messages")
+    @RequestMapping(value = "/messages", method = RequestMethod.GET, headers = "Accept=application/json")
     public List<Message> getMessageList()
     {
         return springRestService.getAllEvents();
@@ -46,10 +46,10 @@ public class SpringRestController {
         springRestService.deleteAll();
     }
 
-    @RequestMapping(value = "/{name}", method = RequestMethod.GET)
-    public String getGreeting(@PathVariable String name) {
-        String result = "Hello " + name;
-        return result;
-    }
+//    @RequestMapping(value = "/{name}", method = RequestMethod.GET)
+//    public String getGreeting(@PathVariable String name) {
+//        String result = "Hello " + name;
+//        return result;
+//    }
 
 }

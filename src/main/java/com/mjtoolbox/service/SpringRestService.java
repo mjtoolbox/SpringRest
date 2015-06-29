@@ -18,13 +18,13 @@ public class SpringRestService {
     private static List<Message> messageList = new ArrayList<Message>();
 
     public List<Message> getAllEvents() {
-
-        messageList.add(new Message("", 12345L, "ALU", "Instruction Pending", "Testing Instruction creation", new Date(), new Date(), "MJ", "Pending"));
-        messageList.add(new Message("", 12346L, "JHT", "Implementation Created", "Testing", new Date(), new Date(), "WISPSOSE", "Submitted"));
-        messageList.add(new Message("", 12347L, "SFL", "Instruction Pending", "Testing Instruction send", new Date(), new Date(), "HLPPSOSE", "Pending"));
-        messageList.add(new Message("", 12348L, "CQD", "Instruction Sent", "Instruction was sent", new Date(), new Date(), "PSOSE", "Sent"));
-        messageList.add(new Message("", 12349L, "PCN", "Instruction Pending", "Testing Instruction send", new Date(), new Date(), "WISPSOSE", "Pending"));
-
+        if ( messageList.size() == 0) {
+            messageList.add(new Message("", 12345L, "ALU", "Instruction Pending", "Testing Instruction creation", new Date(), new Date(), "MJ", "Pending"));
+            messageList.add(new Message("", 12346L, "JHT", "Implementation Created", "Testing", new Date(), new Date(), "WISPSOSE", "Submitted"));
+            messageList.add(new Message("", 12347L, "SFL", "Instruction Pending", "Testing Instruction send", new Date(), new Date(), "HLPPSOSE", "Pending"));
+            messageList.add(new Message("", 12348L, "CQD", "Instruction Sent", "Instruction was sent", new Date(), new Date(), "PSOSE", "Sent"));
+            messageList.add(new Message("", 12349L, "PCN", "Instruction Pending", "Testing Instruction send", new Date(), new Date(), "WISPSOSE", "Pending"));
+        }
         return messageList;
     }
 

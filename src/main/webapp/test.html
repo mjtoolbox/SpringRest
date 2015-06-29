@@ -23,27 +23,25 @@
         <h1>CM Message Console for {{userId}} </h1>
         <!--http://issues.wenzhixin.net.cn/bootstrap-table/-->
 
-        <div class="row">
-        <table>
+
+        <table class="table table-hover">
+            <thead>
             <tr>
                 <td>ID</td>
                 <td>Reservoir</td>
                 <td>Message</td>
                 <td>Time</td>
             </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="message in messageEvents">
+                <td>{{ message.id }}</td>
+                <td>{{ message.reservoir }}</td>
+                <td>{{ message.title }} - {{message.description}}</td>
+                <td>{{ message.submitTime | date : 'h:mma, EEE, d MMM, y'}}</td>
+            </tr>
+            </tbody>
         </table>
-        </div>
-
-        <!--<div ng-repeat="message in messageEvents" class="col-md-6">-->
-        <div ng-repeat="message in messageEvents">
-            <p class="id">{{ message.id }}</p>
-
-            <p class="resevoir">{{ message.reservoir }}</p>
-
-            <p class="message">{{ message.title }} - {{message.description}}</p>
-
-            <p class="time">{{ message.submitTime | date : 'h:mma, EEE, d MMM, y'}}</p>
-        </div>
 
     </div>
 </div>
