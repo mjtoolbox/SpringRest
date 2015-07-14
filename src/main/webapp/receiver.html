@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+    <link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="resources/bootstrap/js/bootstrap.min.js"></script>
+    <script src="resources/js/lib/angular/angular.min.js"></script>
+    <script src="resources/js/lib/angular/angular-websocket.js"></script>
+
+    <!-- Modules -->
+    <script src="resources/js/app.js"></script>
+
+    <!-- Controllers -->
+    <script src="resources/js/controllers/MessageController.js"></script>
+</head>
+<body ng-app="myApp">
+<div class="header">
+    <div class="container">
+        <h1>Display Message Objects</h1>
+    </div>
+</div>
+
+<div class="main" ng-controller="MessageController">
+    <div class="container">
+
+        <h1>CM Message Console for {{userId}} </h1>
+        <!--http://issues.wenzhixin.net.cn/bootstrap-table/-->
+
+
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <td>ID</td>
+                <td>Reservoir</td>
+                <td>Message</td>
+                <td>Time</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="message in messageEvents">
+                <td>{{ message.id }}</td>
+                <td>{{ message.reservoir }}</td>
+                <td>{{ message.title }} - {{message.description}}</td>
+                <td>{{ message.submitTime | date : 'h:mma, EEE, d MMM, y'}}</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+<!--<div class="footer">-->
+<!--<div class="container">-->
+<!--<h2>Available for iPhone and Android.</h2>-->
+<!--<img src="http://s3.amazonaws.com/codecademy-content/projects/shutterbugg/app-store.png" width="120px" />-->
+<!--<img src="http://s3.amazonaws.com/codecademy-content/projects/shutterbugg/google-play.png" width="110px" />-->
+<!--</div>-->
+<!--</div>-->
+
+
+</body>
+</html>

@@ -19,8 +19,8 @@
     <!-- View locations -->
     <mvc:resources mapping="/**" location="/WEB-INF/html/"/>
 
-    <jee:jndi-lookup id="messageQueue" jndi-name="java:jboss/exported/jms/queue/test" />
-    <jee:jndi-lookup id="messageTopic" jndi-name="java:jboss/exported/jms/topic/test" />
+    <jee:jndi-lookup id="messageQueue" jndi-name="queue/test" />
+    <jee:jndi-lookup id="messageTopic" jndi-name="topic/test" />
     <jee:jndi-lookup id="cf" jndi-name="java:/ConnectionFactory" />
 
 </beans>
