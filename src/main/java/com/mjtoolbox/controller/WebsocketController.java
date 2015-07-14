@@ -1,8 +1,7 @@
 package com.mjtoolbox.controller;
 
-import com.mjtoolbox.bean.WebsocketJMS;
+import org.springframework.stereotype.Component;
 
-import javax.enterprise.event.Observes;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.ObjectMessage;
@@ -21,6 +20,7 @@ import java.util.Set;
  * Created by mijo on 2015-07-14.
  */
 @ServerEndpoint("/websocket/helloName")
+@Component
 public class WebsocketController implements Serializable {
 
     private static final Set<Session> sessions = Collections.synchronizedSet(new HashSet<Session>());
@@ -44,8 +44,7 @@ public class WebsocketController implements Serializable {
         System.out.println("Closing a WebSocket due to " + reason.getReasonPhrase());
     }
 
-
-    public void onJMSMessage(@Observes @WebsocketJMS Message msg) {
+    public void sendMsgToClient(Message msg) {
         try {
             for (Session s : sessions) {
                 ObjectMessage object = (ObjectMessage) msg;

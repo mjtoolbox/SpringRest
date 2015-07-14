@@ -1,12 +1,9 @@
 package com.mjtoolbox.msgClient;
 
-import com.mjtoolbox.bean.WebsocketJMS;
+import com.mjtoolbox.controller.WebsocketController;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.ejb.ActivationConfigProperty;
-import javax.ejb.MessageDriven;
-import javax.enterprise.event.Event;
-import javax.inject.Inject;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
@@ -20,14 +17,12 @@ import javax.jms.ObjectMessage;
 @Component
 public class MessageClient implements MessageListener {
 
-
-//    @Inject
-//    @WebsocketJMS
-//    Event<Message> jmsEvent;
+//    @Autowired
+//    private WebsocketController serverEndpoint;
 
     public void onMessage(Message message) {
 
-//        jmsEvent.fire(message);
+//        serverEndpoint.sendMsgToClient(message);
 
         ObjectMessage text = (ObjectMessage) message;
         String strMessage = null;
