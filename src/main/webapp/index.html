@@ -14,20 +14,25 @@
             websocket.onopen = function() {
                 displayStatus('Open');
                 document.getElementById('sayHello').disabled = false;
-                displayMessage('Connection is now open. Type a name and click Say Hello to send a message.');
+                displayMessage('Connection is now open.');
+                console.log('Connection is now open.');
+
             };
             websocket.onmessage = function(event) {
                 // log the event
                 displayMessage('The response was received! ' + event.data, 'success');
+                console.log('Response was received' + event.data);
             };
             websocket.onerror = function(event) {
                 // log the event
                 displayMessage('Error! ' + event.data, 'error');
+                console.log('Error occurred:' + event.data);
             };
             websocket.onclose = function() {
                 displayStatus('Closed');
-                displayMessage('The connection was closed or timed out. Please click the Open Connection button to reconnect.');
+                displayMessage('The connection was closed or timed out. ');
                 document.getElementById('sayHello').disabled = true;
+                console.log('Connection was closed or timed out');
             };
         }
 
@@ -39,14 +44,17 @@
             message.setAttribute("class", "message");
             message.value = 'WebSocket closed.';
             // log the event
+            console.log('Websocket closed from disconnect()');
         }
 
         function sendMessage() {
             if (websocket !== null) {
                 var content = document.getElementById('name').value;
                 websocket.send(content);
+                console.log('Send message');
             } else {
-                displayMessage('WebSocket connection is not established. Please click the Open Connection button.', 'error');
+                displayMessage('WebSocket connection is not established.', 'error');
+                console.log('Connection is not established!');
             }
         }
 
@@ -54,11 +62,13 @@
             var message = document.getElementById('hellomessage');
             message.setAttribute("class", style);
             message.value = data;
+            console.log('display message from server ' + data);
         }
 
         function displayStatus(status) {
             var currentStatus = document.getElementById('currentstatus');
             currentStatus.value = status;
+            console.log('display current status: ' + status);
         }
 
     </script>
@@ -77,7 +87,7 @@
         </div>
         <div>
             <fieldset>
-                <legend>Type your name below, then click the `Say Hello` button :</legend>
+                <legend>Here is returned message :</legend>
                 <input id="name" type="text" size="40" style="width: 40%"/>
                 <input type="button" id="sayHello" onclick="sendMessage();" value="Say Hello" disabled="disabled"/>
             </fieldset>

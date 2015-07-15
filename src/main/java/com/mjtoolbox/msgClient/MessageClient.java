@@ -18,11 +18,12 @@ import javax.jms.ObjectMessage;
 public class MessageClient implements MessageListener {
 
 //    @Autowired
-//    private WebsocketController serverEndpoint;
+    private WebsocketController serverEndpoint = new WebsocketController();
+
 
     public void onMessage(Message message) {
 
-//        serverEndpoint.sendMsgToClient(message);
+        serverEndpoint.sendMsgToClient(message);
 
         ObjectMessage text = (ObjectMessage) message;
         String strMessage = null;
