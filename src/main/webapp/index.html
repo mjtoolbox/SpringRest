@@ -3,8 +3,10 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <script src="resources/js/lib/jquery/jquery-2.1.4.min.js"></script>
 
     <script type="text/javascript">
+
         var websocket = null;
 
         function connect() {
@@ -41,6 +43,7 @@
                 websocket.close();
                 websocket = null;
             }
+            var message = document.getElementById('hellomessage');
             message.setAttribute("class", "message");
             message.value = 'WebSocket closed.';
             // log the event
@@ -71,6 +74,7 @@
             console.log('display current status: ' + status);
         }
 
+
     </script>
 </head>
 <body>
@@ -87,14 +91,14 @@
         </div>
         <div>
             <fieldset>
-                <legend>Here is returned message :</legend>
+                <legend>Here is returned message : </legend>
                 <input id="name" type="text" size="40" style="width: 40%"/>
                 <input type="button" id="sayHello" onclick="sendMessage();" value="Say Hello" disabled="disabled"/>
             </fieldset>
         </div>
-        <div>Current WebSocket Connection Status: <output id="currentstatus" class="message">Closed</output></div>
+        <div>Current WebSocket Connection Status: <label class="message" id="currentstatus">Closed</label></div>
         <div>
-            <output id="hellomessage" />
+            <label id="hellomessage"></label>
         </div>
     </div>
 </div>

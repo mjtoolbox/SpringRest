@@ -2,12 +2,10 @@ package com.mjtoolbox.controller;
 
 import org.springframework.stereotype.Component;
 
-import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.ObjectMessage;
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.HashSet;
@@ -29,7 +27,7 @@ public class WebsocketController implements Serializable {
     public String sayHello(String name, final Session client) {
 
         System.out.println("Say hello to '" + name + "'");
-        return ("Hello " + name + " from websocket endpoint");
+        return ("Hello " + name + " from websocket Server Endpoint");
     }
 
     @OnOpen
@@ -45,18 +43,19 @@ public class WebsocketController implements Serializable {
     }
 
     public void sendMsgToClient(Message msg) {
-        try {
-            for (Session s : sessions) {
+
+        for (Session s : sessions) {
+            try {
                 ObjectMessage object = (ObjectMessage) msg;
                 String result = (String) object.getObject();
 
                 s.getBasicRemote().sendText("Horray! message from JMS: " + result);
+            } catch (Exception e) {
+                System.out.println("Exception : " + e);
             }
-        } catch (IOException e) {
-            System.out.println("Exception : " + e);
-        } catch (JMSException ex) {
-            System.out.println("Exception : " + ex);
+
         }
+
     }
 
 }

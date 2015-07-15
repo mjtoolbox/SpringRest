@@ -45,7 +45,7 @@ public class SpringJmsController {
             subscriber.setMessageListener(client);
             connection.start();
 
-            ObjectMessage message = session.createObjectMessage( new String("Hello there it is a new message!!! " + msg));
+            ObjectMessage message = session.createObjectMessage( new String("Sending this ***JMS message*** to Toopic." + msg));
             publisher.send(message);
 
         }
