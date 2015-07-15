@@ -45,3 +45,18 @@ Step to test
 4. Open up another tab in the browser. localhost:8080/springrest/spring/jms/send/{yourmessage}
 This will invoke JMS call and send message to Topic. Subscriber receives the message and send message to WebSocket client.
 5. Message from JMS shows up on WebSocket client message page.
+
+
+To Do
+[HTML]
+1. New page with AngularJS-Websocket
+2. Handle ction from HTML to back en
+
+[WebSocket Server Endpoint]
+2. Add error handling
+3. Analyze Message type & Delivery point based on the user
+
+[REST Spring]
+4. Possibly injecting legacy code: http://stackoverflow.com/questions/3813588/how-to-inject-dependencies-into-a-self-instantiated-object-in-spring
+
+
