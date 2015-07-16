@@ -1,3 +1,4 @@
+
 package com.mjtoolbox.service;
 
 import com.mjtoolbox.bean.Message;

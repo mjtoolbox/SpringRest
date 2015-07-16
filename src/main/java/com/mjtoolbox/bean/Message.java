@@ -1,3 +1,4 @@
+
 package com.mjtoolbox.bean;
 
 import java.util.Date;
