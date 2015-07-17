@@ -1,25 +1,63 @@
-var app = angular.module("myApp",['ngWebsocket']);
+var app = angular.module("myApp",['ngWebsocket'])
+    .factory('MyData', function($websocket) {
+        // Open a WebSocket connection
+        var ws = $websocket('ws://localhost/springrest/websocket/helloName');
+        var collection = [];
 
-//function Main($scope, $http){
-//
-//    $scope.data = [
-//        {id:1, title:'Foo', desc:'More stuff about this here', category_name:'Category 1'},
-//        {id:2, title:'Goo', desc:'More stuff about this here', category_name:'Category 2'},
-//        {id:3, title:'Roo', desc:'Blah details on Roo are here', category_name:'Category 1'},
-//        {id:4, title:'Hoo', desc:'More stuff about Hoo here', category_name:'Category 2'},
-//        {id:5, title:'Woo', desc:'More stuff about this here', category_name:'Category 3'}
-//    ];
-//
-//    $scope.setSelectedItem = function(i){
-//        $scope.selectedItem = i;
-//    }
-//
-//    $scope.deleteItem = function(){
-//        if ($scope.selectedItem >= 0) {
-//            $scope.data.splice($scope.selectedItem,1);
-//        }
-//    }
-//
-//}
+        ws.onMessage(function(event) {
+            collection.push(JSON.parse(event.data));
+            console.log('message: ', event);
+            //var res;
+            //try {
+            //    res = JSON.parse(event.data);
+            //} catch(e) {
+            //    res = {'username': 'anonymous', 'message': event.data};
+            //}
+            //
+            //collection.push({
+            //    username: res.username,
+            //    content: res.message,
+            //    timeStamp: event.timeStamp
+            //});
+        });
 
-//$(document).ready(function() {});
+        ws.onError(function(event) {
+            console.log('connection Error', event);
+        });
+
+        ws.onClose(function(event) {
+            console.log('connection closed', event);
+        });
+
+        ws.onOpen(function() {
+            console.log('connection open');
+            ws.send('Hello World');
+            ws.send('again');
+            ws.send('and again');
+        });
+
+
+        //return {
+        //    collection: collection,
+        //    status: function () {
+        //        return ws.readyState;
+        //    },
+        //    send: function (message) {
+        //        if (angular.isString(message)) {
+        //            ws.send(message);
+        //        }
+        //        else if (angular.isObject(message)) {
+        //            ws.send(JSON.stringify(message));
+        //        }
+        //    }
+        //};
+
+        var methods = {
+            collection: collection,
+            get: function() {
+                ws.send(JSON.stringify({ action: 'get' }));
+            }
+        };
+
+        return methods;
+    });

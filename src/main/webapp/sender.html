@@ -24,11 +24,24 @@
 
         <h1>Send a new Message</h1>
         <form ng-submit="submit()">
-            <button id="btnAtpId" type="submit" disabled>Send Message</button>
+            <input type="text" ng-model="username">
+            <input type="text" ng-model="new_message" autofocus required>
+            <button id="sendButton" type="submit">Send Message</button>
         </form>
 
+        <!-- below is testing -->
+        <div ng-repeat="message in Messages.collection | orderBy:'-timeStamp' track by $index">
+            <b>{{ message.username | capitalize }}</b>: <small>{{ message.timeStamp | date:'medium' }}</small>
+            <br>
+            {{ message.content }}
+            <br>
+            <br>
+        </div>
 
+        <div id="output">
 
+        </div>
+        <!-- end of testing -->
     </div>
 </div>
 

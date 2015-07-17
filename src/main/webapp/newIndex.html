@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body ng-app="myapp">
+<script src="resources/js/lib/angular/angular.min.js"></script>
+<script src="resources/js/lib/angular/angular-websocket.js"></script>
+<div>
+    <h1>Invoke JMS to send new Message to Receiver.html</h1>
+    <div ng-controller="SomeController">
+
+        <div id="helloId"></div>
+        <form ng-submit="submit()">
+            <button id="btnAtpId" type="submit">Send Message</button>
+
+        <pre>
+                {{ collection }}
+        </pre>
+        </form>
+    </div>
+    <script type="text/javascript">
+        angular.module('myapp', ['ngWebSocket'])
+                .factory('MyData', function ($websocket) {
+                    var wsURI = 'ws://' + window.location.host + '/springrest/websocket/myService';
+                    var websocket = $websocket(wsURI);
+
+                    var collection = [];
+
+                    websocket.onMessage(function (event) {
+                        collection.push(event.data);
+                        console.log('message: ' +  event.data);
+
+                    });
+
+                    websocket.onOpen(function (event) {
+                        console.log('Connection open!');
+                        websocket.send('HELLO Server!');
+                    });
+
+                    websocket.onError(function (event) {
+                        console.log('Error occurred : ' + event);
+                    });
+
+                    websocket.onClose = function () {
+                        console.log('Connection was closed or timed out');
+                    };
+
+
+                    return {
+                        collection: collection,
+                        status: function () {
+                            return websocket.readyState;
+                        },
+                        send: function (message) {
+                            if (angular.isString(message)) {
+                                websocket.send(message);
+                            }
+                            else if (angular.isObject(message)) {
+                                websocket.send(JSON.stringify(message));
+                            }
+                        }
+                    };
+                })
+                .controller('SomeController', function ($scope, MyData) {
+                    $scope.MyData = MyData;
+
+                    $scope.submit = function(){
+                        MyData.send('Here is another message from client submit.');
+                    }
+                });
+
+    </script>
+
+</div>
+</body>
+</html>

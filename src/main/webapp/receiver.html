@@ -19,12 +19,12 @@
     </div>
 </div>
 
-<div class="main" ng-controller="MessageController">
+<div class="main" ng-controller="WebSocketController">
     <div class="container">
 
         <h1>CM Message Console for {{userId}} </h1>
         <!--http://issues.wenzhixin.net.cn/bootstrap-table/-->
-
+        Connection: {{Messages.status()}}
 
         <table class="table table-hover">
             <thead>
