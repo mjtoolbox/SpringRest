@@ -1,63 +1,56 @@
-var app = angular.module("myApp",['ngWebsocket'])
-    .factory('MyData', function($websocket) {
-        // Open a WebSocket connection
-        var ws = $websocket('ws://localhost/springrest/websocket/helloName');
+var app = angular.module("myApp",['angular-websocket']);
+    app.factory('ConnectionFactory', function ($websocket) {
+        var wsURI = 'ws://' + window.location.host + '/springrest/websocket/myService';
+        var websocket = $websocket(wsURI);
+
         var collection = [];
 
-        ws.onMessage(function(event) {
-            collection.push(JSON.parse(event.data));
-            console.log('message: ', event);
-            //var res;
-            //try {
-            //    res = JSON.parse(event.data);
-            //} catch(e) {
-            //    res = {'username': 'anonymous', 'message': event.data};
-            //}
-            //
-            //collection.push({
-            //    username: res.username,
-            //    content: res.message,
-            //    timeStamp: event.timeStamp
-            //});
-        });
+        websocket.onMessage(function (event) {
+            console.log('message: ' + event.data);
+            var response = angular.fromJson(event.data);
 
-        ws.onError(function(event) {
-            console.log('connection Error', event);
-        });
-
-        ws.onClose(function(event) {
-            console.log('connection closed', event);
-        });
-
-        ws.onOpen(function() {
-            console.log('connection open');
-            ws.send('Hello World');
-            ws.send('again');
-            ws.send('and again');
-        });
-
-
-        //return {
-        //    collection: collection,
-        //    status: function () {
-        //        return ws.readyState;
-        //    },
-        //    send: function (message) {
-        //        if (angular.isString(message)) {
-        //            ws.send(message);
-        //        }
-        //        else if (angular.isObject(message)) {
-        //            ws.send(JSON.stringify(message));
-        //        }
-        //    }
-        //};
-
-        var methods = {
-            collection: collection,
-            get: function() {
-                ws.send(JSON.stringify({ action: 'get' }));
+            for (var i = 0; i < response.length; i++) {
+                collection.push({
+                    oid: response[i].oid,
+                    id: response[i].id,
+                    reservoir: response[i].reservoir,
+                    title: response[i].title,
+                    description: response[i].description,
+                    triggerTime: response[i].triggerTime,
+                    submitTime: response[i].submitTime,
+                    submitBy: response[i].submitBy,
+                    status: response[i].status
+                });
             }
+        });
+
+        websocket.onOpen(function (event) {
+            console.log('Connection open!');
+            websocket.send('HELLO Server!');
+        });
+
+        websocket.onError(function (event) {
+            console.log('Error occurred : ' + event);
+        });
+
+        websocket.onClose = function () {
+            console.log('Connection was closed or timed out');
         };
 
-        return methods;
+
+        return {
+            collection: collection,
+            status: function () {
+                return websocket.readyState;
+            },
+            send: function (message) {
+                if (angular.isString(message)) {
+                    websocket.send(message);
+                }
+                else if (angular.isObject(message)) {
+                    websocket.send(JSON.stringify(message));
+                }
+            }
+        };
     });
+

@@ -1,61 +1,50 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-    <link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!-- JQuery must be declared before bootstrap -->
+    <script src="resources/js/lib/jquery/jquery-2.1.4.min.js"></script>
     <script src="resources/bootstrap/js/bootstrap.min.js"></script>
+    <link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <script src="resources/js/lib/angular/angular.min.js"></script>
     <script src="resources/js/lib/angular/angular-websocket.js"></script>
-
-    <!-- Modules -->
     <script src="resources/js/app.js"></script>
-
-    <!-- Controllers -->
-    <script src="resources/js/controllers/MessageController.js"></script>
+    <script src="resources/js/controllers/WebSocketController.js"></script>
 </head>
 <body ng-app="myApp">
-<div class="header">
-    <div class="container">
-        <h1>Display Message Objects</h1>
+
+<div>
+    <h1>This page retrieve Messages: Receiver.html</h1>
+
+    <div ng-controller="WebSocketController">
+        <div class="container">
+
+            <h1>CM Message Console for {{userId}} </h1>
+            <!--http://issues.wenzhixin.net.cn/bootstrap-table/-->
+
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Reservoir</td>
+                    <td>Message</td>
+                    <td>Time</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="message in ConnectionFactory.collection">
+                    <td>{{ message.id }}</td>
+                    <td>{{ message.reservoir }}</td>
+                    <td>{{ message.title }} - {{message.description}}</td>
+                    <td>{{ message.submitTime | date : 'h:mma, EEE, d MMM, y'}}</td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+
     </div>
 </div>
-
-<div class="main" ng-controller="WebSocketController">
-    <div class="container">
-
-        <h1>CM Message Console for {{userId}} </h1>
-        <!--http://issues.wenzhixin.net.cn/bootstrap-table/-->
-        Connection: {{Messages.status()}}
-
-        <table class="table table-hover">
-            <thead>
-            <tr>
-                <td>ID</td>
-                <td>Reservoir</td>
-                <td>Message</td>
-                <td>Time</td>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="message in messageEvents">
-                <td>{{ message.id }}</td>
-                <td>{{ message.reservoir }}</td>
-                <td>{{ message.title }} - {{message.description}}</td>
-                <td>{{ message.submitTime | date : 'h:mma, EEE, d MMM, y'}}</td>
-            </tr>
-            </tbody>
-        </table>
-
-    </div>
-</div>
-
-<!--<div class="footer">-->
-<!--<div class="container">-->
-<!--<h2>Available for iPhone and Android.</h2>-->
-<!--<img src="http://s3.amazonaws.com/codecademy-content/projects/shutterbugg/app-store.png" width="120px" />-->
-<!--<img src="http://s3.amazonaws.com/codecademy-content/projects/shutterbugg/google-play.png" width="110px" />-->
-<!--</div>-->
-<!--</div>-->
-
-
 </body>
 </html>
