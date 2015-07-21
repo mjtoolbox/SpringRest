@@ -16,8 +16,8 @@
     <mvc:annotation-driven/>
     <!-- Resources-->
     <mvc:resources mapping="/resources/**" location="/resources/"/>
-    <!-- View locations -->
-    <mvc:resources mapping="/**" location="/WEB-INF/html/"/>
+    <!--&lt;!&ndash; View locations &ndash;&gt;-->
+    <!--<mvc:resources mapping="/**" location="/WEB-INF/html/"/>-->
 
     <jee:jndi-lookup id="messageQueue" jndi-name="queue/test" />
     <jee:jndi-lookup id="messageTopic" jndi-name="topic/test" />
