@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:context="http://www.springframework.org/schema/context"
@@ -16,8 +17,8 @@
     <mvc:annotation-driven/>
     <!-- Resources-->
     <mvc:resources mapping="/resources/**" location="/resources/"/>
-    <!--&lt;!&ndash; View locations &ndash;&gt;-->
-    <!--<mvc:resources mapping="/**" location="/WEB-INF/html/"/>-->
+    <!-- View locations -->
+    <mvc:resources mapping="/**" location="/WEB-INF/html/"/>
 
     <jee:jndi-lookup id="messageQueue" jndi-name="queue/test" />
     <jee:jndi-lookup id="messageTopic" jndi-name="topic/test" />

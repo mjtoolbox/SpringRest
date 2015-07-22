@@ -1,4 +1,4 @@
-This sample project is to use Spring REST back end and AngularJS front end. 
+This sample project is to use Spring REST back end and AngularJS front end.
 Problem description - Multiple users login to the system. They have notification windows (message console). Based on the event, JMS message is created from backend and publish to either Queue or Topic based on the business logic. Some of events must deliver to users' notification window and allow users to take action.
 
 [Solution] JMS subscriber call WebSocket ServerEndpoint's method, which will send translated JMS message (String format) to WebSocket client through already established WebSocket channel.

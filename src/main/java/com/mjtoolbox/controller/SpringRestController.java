@@ -1,3 +1,4 @@
+
 package com.mjtoolbox.controller;
 
 import com.mjtoolbox.bean.Message;
@@ -53,3 +54,4 @@ public class SpringRestController {
 //    }
 
 }
+
