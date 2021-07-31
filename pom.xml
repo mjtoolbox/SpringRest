@@ -10,7 +10,7 @@
 
 	<properties>
 		<spring.version>4.3.21.RELEASE</spring.version>
-		<version.junit>4.8.2</version.junit>
+		<version.junit>4.13.1</version.junit>
 		<version.jms>1.1</version.jms>
 		<version.org.jboss.spec.javax.websocket>1.0.0.Final</version.org.jboss.spec.javax.websocket>
 		<version.jboss.bom.eap>6.3.0-redhat-1</version.jboss.bom.eap>
